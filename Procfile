@@ -1,2 +1,2 @@
 web: python voxy/manage.py collectstatic --noinput; 
-web: gunicorn voxy.wsgi
+web: gunicorn --pythonpath voxy voxy.wsgi
