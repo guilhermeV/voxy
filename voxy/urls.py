@@ -16,7 +16,6 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from voxy import settings
 from voxy import views
 
 urlpatterns = [
@@ -26,6 +25,3 @@ urlpatterns = [
     url(r'^count/', views.get_text, name='count'),
 ]
 
-urlpatterns += urlpatterns('',
- (r'^static/*$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
- )
