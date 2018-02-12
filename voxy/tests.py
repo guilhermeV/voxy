@@ -1,22 +1,24 @@
-"""voxy URL Configuration
+import unittest
+import counter
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.9/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
-Including another URLconf
-    1. Add an import:  from blog import urls as blog_urls
-    2. Import the include() function: from django.conf.urls import url, include
-    3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
-"""
-from django.conf.urls import url
-from django.contrib import admin
+class TestCounterMethods(unittest.TestCase):
 
-urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-]
+    def test_base(self):
+        text = 'one two three'
+        result = counter.count(text)
+        self.assertEqual(result, {'quantity':3,'distinct':3})
+        
+    def test_distinct(self):
+        text = 'one two three two'
+        result = counter.count(text)
+        self.assertEqual(result, {'quantity':4,'distinct':3})
+        
+    #numbers will be counted as words
+    def test_number(self):
+        text = '1 2 3'
+        result = counter.count(text)
+        self.assertEqual(result, {'quantity':3,'distinct':3})
+        
+    
+if __name__ == '__main__':
+    unittest.main()
