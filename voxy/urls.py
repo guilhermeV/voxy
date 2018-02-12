@@ -25,3 +25,7 @@ urlpatterns = [
     url(r'^count/', views.get_text, name='count'),
 ]
 
+urlpatterns += urlpatterns('',
+    (r'^static/(?P<path>.*)$', 'django.views.static.serve',
+    {'document_root': os.path.join(os.path.dirname(__file__), 'static')} ),
+    )
