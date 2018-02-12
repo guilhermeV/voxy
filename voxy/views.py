@@ -26,8 +26,6 @@ def get_text(request):
     return render(request, 'name.html', {'form': form})
     
 def counter(text_block):
-    cnt = Counter(text_block)
     words = re.findall(r'\w+', text_block.lower())
-    print len(words)
-    print len(Counter(words))
+    
     
