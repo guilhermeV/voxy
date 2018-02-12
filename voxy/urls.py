@@ -26,6 +26,6 @@ urlpatterns = [
     url(r'^count/', views.get_text, name='count'),
 ]
 
-urlpatterns += patterns('',
+urlpatterns += urlpatterns('',
  (r'^static/*$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
  )
