@@ -1,0 +1,22 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+
+
+<form action="/count/" method="post">
+    {% csrf_token %}
+  <h1>Word Counter</h1>
+
+  
+  <fieldset>
+    <legend><span class="number">1</span> Insert the text body</legend>
+    {{ form }}
+  </fieldset>
+
+  <button type="submit">Count</button>
+  
+  <legend>Quantity of words <span class="number">?</span></legend>
+  <legend>Quantity of distinct words <span class="number">?</span></legend>
+  
+  
+
+</form>
