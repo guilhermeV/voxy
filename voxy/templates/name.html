@@ -1,4 +1,4 @@
-{% load static %}
+{% load static from staticfiles %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
 
 
@@ -14,8 +14,8 @@
 
   <button type="submit">Count</button>
   
-  <legend>Quantity of words <span class="number">?</span></legend>
-  <legend>Quantity of distinct words <span class="number">?</span></legend>
+  <legend>Quantity of words <span class="number">{{result.quantity}}</span></legend>
+  <legend>Quantity of distinct words <span class="number">{{result.distinct}}</span></legend>
   
   
 
