@@ -10,7 +10,7 @@ def index(request):
     return HttpResponse("Hello moto")
     
 def get_text(request):
-    result = '?'
+    result = {'quantity': '?', 'distinct': '?'}
     if request.method == 'POST':
         form = WordCounterForm(request.POST)
         # check whether it's valid:
