@@ -1,2 +1,2 @@
-web: python my_django_app/manage.py collectstatic --noinput; 
-web: gunicorn --pythonpath voxy voxy.wsgi
+web: python voxy/manage.py collectstatic --noinput; 
+web: gunicorn voxy.wsgi
